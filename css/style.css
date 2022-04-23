@@ -2,16 +2,16 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgb(176, 54, 54); 
 }
-
 section{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
 }
-
 .dates{
     display: flex;
     justify-content: center;
@@ -25,14 +25,16 @@ section{
     text-align: center;
     font-size: 25px;
     background: linear-gradient(to left, orange , yellow);
+    border-radius: 15px;
 }
 .dates button{
     width: 200px;
     height: 50px;
     font-size: 25px;
     background: linear-gradient(to right, orange , yellow);
+    cursor: pointer;
+    border-radius: 30px;
 }
-
 .changeColor{
     display: flex;
     justify-content: center;
@@ -40,7 +42,7 @@ section{
     gap: 10px;
     width: 300px;
     height: 50px;
-    background: linear-gradient(to right, orange , yellow);
+    background: linear-gradient(to right, rgb(255, 242, 0) , yellow);
 }
 .changeColor input{
     width: 80px;
@@ -50,17 +52,22 @@ section{
     width: 200px;
     height: 38px;
     font-size: 20px;
+    background: linear-gradient(to left, rgb(255, 255, 0) , rgba(255, 0, 0, 0.581));
+    border-radius: 30px;
+    cursor: pointer;
 }
 #menuObtion button{
     width: 350px;
     height: 50px;
     font-size: 25px;
     background: linear-gradient(to right, orange , yellow);
+    border-radius: 30px;
+    cursor: pointer;
 }
-.card{
+#card{
     background: linear-gradient(to right, orange , yellow);
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 350px;
     border:solid 3px rgb(0, 255, 238);
     font-size: 20px;
     display: flex;
@@ -75,7 +82,11 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 260px;
-    width: 250px;
+    text-align: center;
+    height: 380px;
+    width: 320px;
     border-radius: 30px;
+}
+.result{
+    background: linear-gradient(to right, orange , yellow);   
 }

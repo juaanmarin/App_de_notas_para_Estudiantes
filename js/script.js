@@ -10,8 +10,18 @@ const btnNoteToPassTheSubject=document.getElementById("btnnoteToPassTheSubject")
 const btnRollOfHonor=document.getElementById("btnrollOfHonor");
 const menu=document.getElementById("menuObtion");
 const result=document.getElementById("result");
+const cart=document.getElementById("card");
+const msj=document.getElementById("msj");
+const msj2=document.getElementById("msj2");
+const msj3=document.getElementById("msj3");
+
 
 menu.style.display="none";
+cart.style.display="none";
+
+const hideLetter=()=>{
+    cart.style.display="none";
+}
 
 const convertValues=()=>{
     let convertNote1=parseFloat(note1.value);
@@ -44,28 +54,79 @@ const validateFields=()=>{
     }
 }
 
+//funcion para salir en el cuadro de honor
 const NoteForrollOfHonor=()=>{
     let number=calculateNotes();
     let noteFinal=(4.0-number)/0.4;
-    result.innerText=`la nota minima para apracer en el cuadro de honor es de ${noteFinal} `;
+    msj.innerText=`la nota actual es ${number.toFixed(2)}`
+    msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superio par el cuadro de honor`
+    if (noteFinal>0.9 && noteFinal <5.1){
+        msj3.innerText=`es posible el cuadro de honor`;
+        msj3.style.color=("green");
+    }
+    else{
+        msj3.innerText=`es imposible alcansar el cuadro de honor`;
+        msj3.style.color=("red");
+    }
+    
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 }
 
+//funcion para perder la nota
 const missingNote=()=>{
     let number=calculateNotes();
-    let noteFinal=(1-number)/0.4;
-    result.innerText=`la nota que debe sacar para perder la materia es ${noteFinal} `;
+    let noteFinal=(2-number)/0.4;
+    msj.innerText=`la nota actual es ${number.toFixed(2)}`
+    msj2.innerText=`necesita ${noteFinal.toFixed(2)} o inferior para perder`
+
+    if (noteFinal>1 && noteFinal <5){
+        msj3.innerText=`es posible perder`;
+        msj3.style.color=("green");
+    }
+    else{
+        msj3.innerText=`es imposible perder`;
+        msj3.style.color=("red");
+    }
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 }
 
+//funcion para aprobar
 const approvalNote=() =>{
     let number=calculateNotes();
     let noteFinal=(3.5-number)/0.4;
-    result.innerText=`la nota minima para aprobar es de ${noteFinal} `;
+    msj.innerText=`la nota actual es ${number.toFixed(2)}`
+    msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superior para aprobar`
+
+    if (noteFinal>0.9 && noteFinal <5.1){
+        msj3.innerText=`es posible aprobar`;
+        msj3.style.color=("green");
+    }
+    else{
+        msj3.innerText=`es imposible aprobar`;
+        msj3.style.color=("red");
+    }
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 }
 
+//funcion para recuperar la nota
 const recoveryNote=() =>{
     let number=calculateNotes();
     let noteFinal=(2-number)/0.4;
-    result.innerText=`la nota minima para recuperar es de ${noteFinal} `; 
+    msj.innerText=`la nota actual es ${number.toFixed(2)}`
+    msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superio para poder recuperar`
+    if (noteFinal>0.9 && noteFinal <5.1){
+        msj3.innerText=`es posible reuperar la materia `;
+        msj3.style.color=("green");
+    }
+    else{
+        msj3.innerText=`es imposible recuperar la materia`;
+        msj3.style.color=("red");
+    }
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 }
 
 changebg.addEventListener("click",() =>{
