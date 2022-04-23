@@ -62,11 +62,11 @@ const NoteForrollOfHonor=()=>{
     msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superio par el cuadro de honor`
     if (noteFinal>0.9 && noteFinal <5.1){
         msj3.innerText=`es posible el cuadro de honor`;
-        msj3.style.color=("green");
+        msj3.style.color=("blue");
     }
     else{
         msj3.innerText=`es imposible alcansar el cuadro de honor`;
-        msj3.style.color=("red");
+        msj3.style.color=("blue");
     }
     
     cart.style.display="";
@@ -82,7 +82,7 @@ const missingNote=()=>{
 
     if (noteFinal>1 && noteFinal <5){
         msj3.innerText=`es posible perder`;
-        msj3.style.color=("green");
+        msj3.style.color=("red");
     }
     else{
         msj3.innerText=`es imposible perder`;
@@ -119,7 +119,7 @@ const recoveryNote=() =>{
     msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superio para poder recuperar`
     if (noteFinal>0.9 && noteFinal <5.1){
         msj3.innerText=`es posible reuperar la materia `;
-        msj3.style.color=("green");
+        msj3.style.color=("black");
     }
     else{
         msj3.innerText=`es imposible recuperar la materia`;
