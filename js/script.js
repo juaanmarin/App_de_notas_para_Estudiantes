@@ -15,26 +15,23 @@ const msj=document.getElementById("msj");
 const msj2=document.getElementById("msj2");
 const msj3=document.getElementById("msj3");
 
-
+//se oculto el menu y la carta
 menu.style.display="none";
 cart.style.display="none";
 
 const hideLetter=()=>{
     cart.style.display="none";
 }
-
 const convertValues=()=>{
     let convertNote1=parseFloat(note1.value);
     let convertNote2=parseFloat(note2.value);
     return values={note1:convertNote1, note2:convertNote2};
 }
-
 const calculateNotes=()=>{
     let values=convertValues()
     let cal=((values.note1*0.3) + (values.note2*0.3));
     return cal;
 }
-
 const validateFields=()=>{
     if(note1.value=="" || note2.value==""){
         result.innerText=`los datos de nota son requeridos`;
@@ -53,7 +50,6 @@ const validateFields=()=>{
         }
     }
 }
-
 //funcion para salir en el cuadro de honor
 const NoteForrollOfHonor=()=>{
     let number=calculateNotes();
@@ -68,18 +64,13 @@ const NoteForrollOfHonor=()=>{
         msj3.innerText=`es imposible alcansar el cuadro de honor`;
         msj3.style.color=("blue");
     }
-    
-    cart.style.display="";
-    setTimeout(hideLetter, 5000);
 }
-
 //funcion para perder la nota
 const missingNote=()=>{
     let number=calculateNotes();
     let noteFinal=(2-number)/0.4;
     msj.innerText=`la nota actual es ${number.toFixed(2)}`
     msj2.innerText=`necesita ${noteFinal.toFixed(2)} o inferior para perder`
-
     if (noteFinal>1 && noteFinal <5){
         msj3.innerText=`es posible perder`;
         msj3.style.color=("red");
@@ -88,17 +79,13 @@ const missingNote=()=>{
         msj3.innerText=`es imposible perder`;
         msj3.style.color=("red");
     }
-    cart.style.display="";
-    setTimeout(hideLetter, 5000);
 }
-
 //funcion para aprobar
 const approvalNote=() =>{
     let number=calculateNotes();
     let noteFinal=(3.5-number)/0.4;
     msj.innerText=`la nota actual es ${number.toFixed(2)}`
     msj2.innerText=`necesita ${noteFinal.toFixed(2)} o superior para aprobar`
-
     if (noteFinal>0.9 && noteFinal <5.1){
         msj3.innerText=`es posible aprobar`;
         msj3.style.color=("green");
@@ -107,10 +94,7 @@ const approvalNote=() =>{
         msj3.innerText=`es imposible aprobar`;
         msj3.style.color=("red");
     }
-    cart.style.display="";
-    setTimeout(hideLetter, 5000);
 }
-
 //funcion para recuperar la nota
 const recoveryNote=() =>{
     let number=calculateNotes();
@@ -125,30 +109,31 @@ const recoveryNote=() =>{
         msj3.innerText=`es imposible recuperar la materia`;
         msj3.style.color=("red");
     }
-    cart.style.display="";
-    setTimeout(hideLetter, 5000);
 }
-
 changebg.addEventListener("click",() =>{
     let actual=document.body;
     actual.style.background=color.value
 })
-
 btnRollOfHonor.addEventListener("click",() =>{
     NoteForrollOfHonor();
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 })
 btnMissingNote.addEventListener("click",() =>{
     missingNote();
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 })
-
 btnNoteToPassTheSubject.addEventListener("click",() =>{
     approvalNote();
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 })
-
 btnRecoveryNote.addEventListener("click",() =>{
     recoveryNote();
+    cart.style.display="";
+    setTimeout(hideLetter, 5000);
 })
-
 validate.addEventListener("click", () =>{  
     validateFields();
 })
